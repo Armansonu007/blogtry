@@ -8,16 +8,14 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { useTheme } from "next-themes";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+
 
 export default function ThemeToggler() {
-  const { setTheme, resolvedTheme } = useTheme();
+  const { setTheme } = useTheme();
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="outline-none">
-        {resolvedTheme === "light" ? <SunIcon /> : <MoonIcon />}
-      </DropdownMenuTrigger>
+      
 
       <DropdownMenuContent>
         <DropdownMenuItem onClick={() => setTheme("light")}>
