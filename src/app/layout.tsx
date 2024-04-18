@@ -6,7 +6,7 @@ import Providers from "@/components/providers";
 
 import { getBlogName } from "@/lib/requests";
 
-const inter = Inter({ subsets: ["latin"] });
+
 
 export async function generateMetadata() {
   const data = await getBlogName();
