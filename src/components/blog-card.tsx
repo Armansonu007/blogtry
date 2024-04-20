@@ -1,4 +1,3 @@
-
 import { PostMetadata } from "@/lib/types";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import Link from "next/link";
@@ -13,7 +12,7 @@ export default function BlogCard({ post }: Props) {
       <CardHeader>
         <img
           className="rounded-lg h-full"
-        //   src={post.coverImage.url}
+          src={post.coverImage?.url || ""}
           alt={post.title}
         />
       </CardHeader>
