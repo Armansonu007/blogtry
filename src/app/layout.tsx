@@ -1,8 +1,7 @@
-
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Providers from "@/components/providers";
-
 
 import { getBlogName } from "@/lib/requests";
 
@@ -32,8 +31,7 @@ export default async function RootLayout({
         <Providers>
           <Navbar />
           {children}
-          <NewsletterCard />
-          <Footer />
+          
         </Providers>
       </body>
     </html>

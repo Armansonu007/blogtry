@@ -26,3 +26,41 @@ export async function getBlogName() {
       favicon: response.publication.favicon,
     };
   }
+
+  export async function getPosts({ first = 9, pageParam = "" }: GetPostsArgs) {
+    const query = gql`
+      query getPosts($publicationId: ObjectId!, $first: Int!, $after: String) {
+        publication(id: $publicationId) {
+          posts(first: $first, after: $after) {
+            edges {
+              node {
+                id
+                title
+                subtitle
+                slug
+                content {
+                  text
+                }
+                coverImage {
+                  url
+                }
+                author {
+                  name
+                  profilePicture
+                }
+              }
+              cursor
+            }
+          }
+        }
+      }
+    `;
+  
+    const response = await request<GetPostsResponse>(endpoint, query, {
+      publicationId,
+      first,
+      after: pageParam,
+    });
+  
+    return response.publication.posts.edges;
+  }
