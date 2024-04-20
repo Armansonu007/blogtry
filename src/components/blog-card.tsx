@@ -13,7 +13,7 @@ export default function BlogCard({ post }: Props) {
       <CardHeader>
         <img
           className="rounded-lg h-full"
-          src={post.coverImage.url}
+        //   src={post.coverImage.url}
           alt={post.title}
         />
       </CardHeader>
