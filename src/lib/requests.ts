@@ -64,3 +64,26 @@ export async function getBlogName() {
   
     return response.publication.posts.edges;
   }
+
+  export async function subscribeToNewsletter(email: string) {
+    const mutation = gql`
+      mutation subscribeToNewsletter($publicationId: ObjectId!, $email: String!) {
+        subscribeToNewsletter(
+          input: { email: $email, publicationId: $publicationId }
+        ) {
+          status
+        }
+      }
+    `;
+  
+    const response = await request<SubscribeToNewsletterResponse>(
+      endpoint,
+      mutation,
+      {
+        publicationId,
+        email,
+      }
+    );
+  
+    return response;
+  }
